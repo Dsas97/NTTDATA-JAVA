@@ -56,7 +56,7 @@ Modify the application.properties files in both microservices (person-service an
 
 ### Application.properties example
 
-spring.application.name=motion-service
+spring.application.name=movement-service
 
 server.port=8082
 
@@ -83,10 +83,10 @@ java -jar build/libs/movement-service-0.0.1-SNAPSHOT.jar
 ### Run the containers
 First you must execute the commands in the directory of each microservice:
 
-clean gradle
+gradle clean 
 
 gradle construction
 
 To run microservices in Docker containers, use the following command from the project root:
 
-docker-compose-compile
+docker-compose up --build
