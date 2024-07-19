@@ -1,7 +1,19 @@
 version: '3.8'
 
 services:
-  persona-service:
+  postgres:
+    image: postgres:latest
+    container_name: postgres
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: manage_cuentas
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+      
+  person-service:
     build:
       context: ./person-service
       dockerfile: Dockerfile
@@ -15,7 +27,7 @@ services:
       - SPRING_DATASOURCE_PASSWORD=admin
       - IS_DOCKER=true
 
-  movimiento-service:
+  movement-service:
     build:
       context: ./movement-service
       dockerfile: Dockerfile
@@ -28,3 +40,6 @@ services:
       - SPRING_DATASOURCE_USERNAME=postgres
       - SPRING_DATASOURCE_PASSWORD=admin
       - IS_DOCKER=true
+
+volumes:
+  postgres-data:
