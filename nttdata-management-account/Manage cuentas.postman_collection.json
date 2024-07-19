@@ -1,0 +1,255 @@
+{
+	"info": {
+		"_postman_id": "205ba825-aa78-4c69-b76e-a70c211fee8f",
+		"name": "Manage cuentas",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "9012707"
+	},
+	"item": [
+		{
+			"name": "Cliente",
+			"item": [
+				{
+					"name": "Crear cliente",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"password\": \"david\",\r\n    \"idEstadoCliente\": 2,\r\n    \"genero\": \"Masculino\",\r\n    \"nombre\": \"David Ayala\",\r\n    \"edad\": 27,\r\n    \"direccion\": \"La Florida ALta\",\r\n    \"telefono\": \"0962673246\",\r\n    \"identificacion\": \"1725155350\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8081/cliente"
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar cliente",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"password\": \"deivid\",\r\n    \"idEstadoCliente\": 1,\r\n    \"genero\": \"Masculino\",\r\n    \"nombre\": \"David Sebastian\",\r\n    \"edad\": 27,\r\n    \"direccion\": \"Los dos puentes\",\r\n    \"telefono\": \"0999999999\",\r\n    \"identificacion\": \"1725155351\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8081/cliente/1"
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar cliente por campos",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n     \"password\": \"@david\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8081/cliente/1"
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar cliente por id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "http://localhost:8081/cliente/2"
+					},
+					"response": []
+				},
+				{
+					"name": "Consultar cliente por id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8081/cliente/1"
+					},
+					"response": []
+				},
+				{
+					"name": "Consultar clientes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8081/cliente"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Cuenta",
+			"item": [
+				{
+					"name": "Crear cuenta",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"idCliente\": 1,\r\n  \"numeroCuenta\": \"478758\",\r\n  \"idTipoCuenta\": 1,\r\n  \"saldoInicial\": 2000.00,\r\n  \"idEstadoCuenta\": 1\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8082/cuenta"
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar cuenta",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"idCliente\": 1,\r\n  \"numeroCuenta\": \"231212\",\r\n  \"idTipoCuenta\": 1,\r\n  \"saldoInicial\": 2300.50,\r\n  \"idEstadoCuenta\": 1\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8082/cuenta/3"
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar cliente por campos",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n \"numeroCuenta\": \"1\",\r\n  \"saldoInicial\": 4545.50,\r\n  \"idEstadoCuenta\": 2\r\n  \r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8082/cuenta/1"
+					},
+					"response": []
+				},
+				{
+					"name": "Consultar cuenta por id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8082/cuenta/1"
+					},
+					"response": []
+				},
+				{
+					"name": "Consultar cuentas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8082/cuenta"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Movimientos",
+			"item": [
+				{
+					"name": "Crear movimiento",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"idCuenta\": 1,\r\n  \"idTipoMovimiento\": 2,\r\n  \"valor\": 4000.50\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8082/movimiento"
+					},
+					"response": []
+				},
+				{
+					"name": "Consultar movimiento por id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8082/movimiento/1"
+					},
+					"response": []
+				},
+				{
+					"name": "Consultar estado cuenta",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/movimiento/estado-cuenta?startDate=2024-02-10T08:30:00&endDate=2024-08-10T08:30:00&accountId=3&page=1&recordsPerPage=7&sortBy=fecha&address=DESC",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"movimiento",
+								"estado-cuenta"
+							],
+							"query": [
+								{
+									"key": "startDate",
+									"value": "2024-02-10T08:30:00"
+								},
+								{
+									"key": "endDate",
+									"value": "2024-08-10T08:30:00"
+								},
+								{
+									"key": "accountId",
+									"value": "3"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "recordsPerPage",
+									"value": "7"
+								},
+								{
+									"key": "sortBy",
+									"value": "fecha"
+								},
+								{
+									"key": "address",
+									"value": "DESC"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  persona-service:
+    build:
+      context: ./person-service
+      dockerfile: Dockerfile
+    image: person-service:1.0
+    container_name: person-service
+    ports:
+      - "8081:8081"
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/manage_cuentas
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=admin
+      - IS_DOCKER=true
+
+  movimiento-service:
+    build:
+      context: ./movement-service
+      dockerfile: Dockerfile
+    image: movement-service:1.0
+    container_name: movement-service
+    ports:
+      - "8082:8082"
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/manage_cuentas
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=admin
+      - IS_DOCKER=true
